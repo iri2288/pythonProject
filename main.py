@@ -1,16 +1,16 @@
-a = ['Первый', 'Второй']
-members = 10
+import turtle as t
+colors = ['red', 'green', 'blue',
+          'yellow', 'gray', 'white']
+t.bgcolor('black')
+t.speed(0)  # максимальная скорость
+angle = 360 / len(colors) - 1
 
-for x in (range(members)):
-    print(a[x % 2])
-
-print('Расчет окончен')
-
-
-for x in range(11):
-    a.append(x)
-
-for index in range(0, len(a),2):
-    print(a[index])
+for x in range(200):
+    t.pencolor(colors[x % len(colors)])
+    # t.pencolor(colors[x % len(colors[0:2])])
+    t.width(x // 100 +1)
+    t.forward(x)
+    t.left(angle)
+t.mainloop()
 
 
