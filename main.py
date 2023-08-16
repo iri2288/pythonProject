@@ -1,14 +1,11 @@
-# Списки, цикл for
+a = []
 
-a = ['имя', 'бремя', 'стремя', 'знамя', 'пламя', 'племя']
+for x in range(11):
+    a.append(x)
 
-a.sort()
+for x in reversed(range(11)):
+    a.append(x)
 
-for item in a[1:len(a):2]:
-    print(item)
-
-for index in range(1, len(a), 2): # range генерирует последовательность целых чисел
-    print(index)  # последовательность значений а со сгенерерованными индексами
-    print(a[index])  # последовательность сгенерерованнымх индексов
+print(a)
 
 
