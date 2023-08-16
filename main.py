@@ -26,8 +26,12 @@ while True: # вечный цикл
 # float(x) - преобразование X в десятичную дробь
 
 temperature = 39.7 # запятая недопустима при float
-string = 'Температура - ' + str(temperature)
-string+= ', это почти' + str(int(temperature)+1)
+string = 'Температура - ' + str(temperature)+'\xB0C'
+#  ASCII 11111111
+#Unicode 2 байта
+# Escape Sequence
+# string+= ', это почти' + str(int(temperature)+1)
+string+= ', это почти ' + str(round(temperature,0))+'\xB0C'
 
 print(string)
 # температура - 39.8, это почти 40
