@@ -11,11 +11,11 @@ print('на часах', raw_time.strftime('%H:%M'))
 
 cur_hour = int(raw_time.strftime('%H'))
 
-if cur_hour >= 6 and cur_hour < 12:
+if 6 <= cur_hour < 12:
     print('Доброе утро')
-elif cur_hour >= 12 and cur_hour < 18:
+elif 12 <= cur_hour < 18:
     print('Добрый день')
-elif cur_hour >= 18 and cur_hour < 23:
+elif 18 <= cur_hour < 23:
     print('Добрый вечер')
 else:
     print('Доброй ночи')
