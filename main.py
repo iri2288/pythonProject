@@ -1,28 +1,12 @@
-from datetime import datetime as d
+color = input('Цвет шарика: ')
 
-raw_time = d.time(d.now())
-
-# строка форматирования времени - strftime
-# %H - часы в 24 часовом формате
-# %M - часы в 24 часовом формате
-# %S - часы в 24 часовом формате
-
-print('на часах', raw_time.strftime('%H:%M'))
-
-cur_hour = int(raw_time.strftime('%H'))
-
-if 6 <= cur_hour < 12:
-    print('Доброе утро')
-elif 12 <= cur_hour < 18:
-    print('Добрый день')
-elif 18 <= cur_hour < 23:
-    print('Добрый вечер')
+if color == 'red' or color == 'blue':
+    print('Buy ball')
 else:
-    print('Доброй ночи')
+    print('Don*t buy ball')
 
-#  тернарный оператор условия
-
-t = 20
-
-print('Тепло') if t > 24 else print('Прохладно')
-#  выражение при True <условие> else выражение при False
+match color:                        # работает с версии python 3.10
+    case 'red' | 'blue':
+        print('Buy ball')
+    case _:
+        print('Don*t buy ball')
