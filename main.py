@@ -1,12 +1,20 @@
-color = input('Цвет шарика: ')
+import turtle as t
+command = input('Put command')
+while command != 'q':
+        match command: # выбор пунктов меню
+         case 'r':
+            print('Turn to the right')
+            t.left(100)
+         case 'l':
+            print('Turn to the left')
+            t.right(100)
+         case 'f':
+            print('Go to forward')
+            t.forward(100)
+           #case 'q':
+           # print('Bye!')
+           # break
+         case _:
+            print('Give a correct command')
 
-if color == 'red' or color == 'blue':
-    print('Buy ball')
-else:
-    print('Don*t buy ball')
-
-match color:                        # работает с версии python 3.10
-    case 'red' | 'blue':
-        print('Buy ball')
-    case _:
-        print('Don*t buy ball')
+        print('Bye!')
