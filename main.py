@@ -1,12 +1,49 @@
-for i in range(101):
-    if i % 10 == 5:
-        print(i)
+#  number = input('Введите число: ')
+#  num_array = list(number)
+#  sum = 0
 
-a = list()  # пустой список с помощью функции list
+#  for n in range(len(number)):
+#  sum += int(n)
 
-for i in range(101):
-    if i % 10 == 5:
-        a.append(i)
+#  print(sum)
+#  1 вариант
+a = input('Ввод числа:')
+a_lenght = len(a)
 
-print(*a, sep=', ')  # * передача аргумента в виде списка
+print('Число разрядов:', a_lenght)
 
+s = 0 # переменная для вычисления суммы
+
+for x in a:
+    s += int(x)
+print('Число разрядов:', s)
+
+
+#  2 вариант
+a = list(input('Ввод числа:'))
+a_lenght = len(a)
+
+print(dir(a))  # все методы объекта "a"
+
+print('Число разрядов:', a_lenght)
+print('До применения map-функции:', a)
+
+a = map(int, a)  # функция высшего порядка, применяет функцию ко всем эл-там списка
+a = list(a)
+
+print('После применения map-функции:', a)
+
+s = 0 # переменная для вычисления суммы
+
+for x in a:
+    s += x
+print('Число разрядов:', s)
+
+#  3 вариант
+
+a = list(input('Ввод числа:'))
+a_lenght = len(a)
+
+a = map(int, a)
+
+print('Число разрядов:', sum(a))
