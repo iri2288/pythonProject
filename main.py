@@ -26,4 +26,15 @@ for item in d:
 
 print(d['стол'])
 
+for item in d:  # перебор словаря по ключам
+    if isinstance(type(d[item] == list))
+        d[item].sort()  # сортируем список перед выводом
+        print(item, end=':\n')
+        for v in enumerate(d[item)]:
+        print('\t' + str(i+1) + '.', v)
+    else:
+        print(item, d[item], sep=': ')
+
+print(d['стол'])
+
 
