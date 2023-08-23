@@ -1,14 +1,18 @@
-lst = ['божество', 'вдохновенье', 'смех', 'слезы', 'любовь']
+date_west = '2023-08-23'
+# date_west_lst = date_west.split('-')[::-1]
+# date_west = '.'.join(date_west_lst)
+print('.'.join(date_west.split('-')[::-1]))
 
-# print('И', ', и '.join(lst))
-string = 'И ' + ', и '.join(lst) + '.'
-print(string)
+#  с помощью split и join удалить все пробелы
+name = '  В ал ен ти н'
+print(''.join(name.split()))
 
-print('И ', end='')
-print(*lst, sep=', и ', end='.')
+# Списочные выражения
+# (list comprehension)
 
-# strip удаляет элементы в начале и конце строки
-r = 'ротор'
-print(r.strip('р'))
-print(r.rstrip('р')) # удаляет только справа
-print(r.lstrip('р')) # удаляет только слева
+# классический способ заполнения списка
+a = []
+#for x in range(10):
+   # a.append(x)
+a = [x for x in range(10)]
+print(a)
