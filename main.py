@@ -1,18 +1,7 @@
-date_west = '2023-08-23'
-# date_west_lst = date_west.split('-')[::-1]
-# date_west = '.'.join(date_west_lst)
-print('.'.join(date_west.split('-')[::-1]))
+# список заполненный лишь четными числами от 2 до 10
+a = [x for x in range(2,11) if x % 2 == 0]
+print(a)
 
-#  с помощью split и join удалить все пробелы
-name = '  В ал ен ти н'
-print(''.join(name.split()))
-
-# Списочные выражения
-# (list comprehension)
-
-# классический способ заполнения списка
-a = []
-#for x in range(10):
-   # a.append(x)
-a = [x for x in range(10)]
+string = '128 256 512 767'
+a = [int(x) for x in string.split()]
 print(a)
