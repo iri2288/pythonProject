@@ -35,6 +35,21 @@ for item in d:  # перебор словаря по ключам
     else:
         print(item, d[item], sep=': ')
 
+
+
 print(d['стол'])
+print(list(d.keys())) # список ключей
+print(list(d.values())) # список значений
+print(d.items())
+# выясним есть ли слово "кот" среди ключей
+if 'кот' in d.keys(): # метод keys - ключи
+    print('Кот есть')
+
+if 'cat' in d.values(): # метод values - значения
+    print('Cat есть')
+
+for x, y in d.items():
+    print(x, y, sep='->')
+
 
 
