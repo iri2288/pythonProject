@@ -1,22 +1,16 @@
-# Анонимные функции лямбда - функции (lambda)
+# рекурсия на примере факториала в python глубина рекурсии 1000 шагов при обходе бинарного дерева
 
 
-def power(a, b):
-    return a ** b
+def factorial(x):
+    if x == 1:
+        return x
+    return x * factorial(x - 1)
 
-my_power = lambda a, b: a ** b
-print(my_power(2,4))
+print(factorial(5))
 
-lst = [1, 2, 3, 4, 5]
+def greeting(hour)
 
-lst2 = map(lambda a: a * 2, lst)
-print(list(lst2))
-
-lst = ['Иван', 'Петр', 'Сидор']
-
-lst_name = map(lambda n: 'Привет, ' + n, lst)
-print(list(lst_name))
-
-lst = ['Иван', 'Петр', 'Сидор']
-lst.sort(reverse=True, key=lambda x: x[2])
-print(lst)
+    """
+    :param hour:  0-23
+    :return: Доброе утро, день, вечер, ночь
+    """
