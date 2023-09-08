@@ -1,27 +1,27 @@
 # Регулярные выражения
-#
-
 import re
 
-pattern = r'\b\w{4}\b'
-pattern = r'\d'  # есть ли в строке цифры
-testString = 'Для экстренных вызовов - 112'
+pattern = '[0-5][0-9]'  # отлавливается числа в этих пределах
+testString = 'Время - 07:45'
 
-result = re.search(pattern, testString)
-# print(result)
-print('Цифры присутствуют в строке') if result else print('Цифр нет!')
-
-pattern = r'\d{3}'  # есть ли в строке 3 цифры идущие подряд
-testString = 'Для экстренных вызовов - 112'
-
-result = re.search(pattern, testString)
 result = re.findall(pattern, testString)
 print(result)
-# print('Цифры присутствуют в строке') if result else print('Цифр нет!')
 
-pattern = r'начать\Z'  # на что заканчивается
-testString = 'Главное в любом деле - начать'
+# Группировка
+# [есн] - в строке присутствует любой из этих символов
+# [а-я] - в строке присутствует символ от а до я
+# [а-яА-Я] - в строке присутствует символ от а до я и от А до Я
+# [^абвгд] - ^ знак отрицания, все буквы кроме указанных
 
-result = re.search(pattern, testString)
-# print(result)
-print('Цифры присутствуют в строке') if result else print('Цифр нет!')
+pattern = '[^абвгд]'  # любая буква в строке, кроме абвгд
+testString = 'АБВГДейка - есть такая передача!'
+
+result = re.findall(pattern, testString, re.I)  # re.I игнорируя регистр
+print(result)
+print(*result, sep='')  # не списком
+
+pattern = r'\((.+?)\)'  # извлекаем контекст, находящийся в скобках
+testString = 'Поиск по образцу (это в скобках)'
+
+result = re.findall(pattern, testString, re.I)  # re.I игнорируя регистр
+print(*result, sep='')  # не списком
