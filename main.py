@@ -1,27 +1,25 @@
-# работа с БД PostgreSQL
-# pip install psycopg2
+# При наследовании
+# базовый,
 
-connection = db.connect(host='localhost',
-                        port=5432,
-                        user='postgres',
-                        password='563dneiolubvi',
-                        dbname='biblio')
+# __init__ - конструктор объектов
+# __del__ - деструктор
+class Student:
+    def __init__(self, name, university):
+        self.name = name
+        self.university = university
 
-# курсор
-cursor = connection.cursor()
-
-query = "SELECT * FROM genre"
-cursor.execute(query)  # отпрвка запроса
-result = cursor.fetchall() # result = cursor.fetchmany()
-
-print(result[1][0])  # [0] ставим иначе выведет кортежем
-
-# CRUD - для create, update, delete
-# connection.commit
+# для print() и str()
+# вывод читабельной информации об объекте
+    def __str__(self):
+        return f'{self.name}, {self.university}'
 
 
-# отключаем курсор
-cursor.close()
+# для разработчика (debug) информация о сложном объекте, список объектов, кортеж и т.д.
+    def __repr__(self):
+        return f'Класс: {self.__class__.__name__}{self.name}, {self.university}'
 
-# отключаемся от БД
-connection.cliose()
+
+
+student = Student('Bill', 'Oxford'), Student('John', 'Oxford')
+
+print(student)
