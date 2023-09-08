@@ -1,38 +1,41 @@
-# Переопределение
-class Rectangle:
-    def __init__(self, a, b):
-        self.a = a
-        self.b = b
-    def area(self):
-        return (self.a * self.b)
-    def perimetr(self):
-        return (self.a + self.b) * 2
-    def __eq__(self, other):
-        if (self.a = other.a) and (self.b = other.b)
-            return True
-        return False
-    def __add__(self, other):
-        return (self.a + other.a, self.b + other.b)
+# PIL - Python Imaging Library
+# pip install pillow
 
-    def __divmod__(self, other):
-        return (self.a / other.a, self.b / other.b)
+from PIL import Image, ImageFilter
 
-class Square(Rectangle):
-    def __init__(self, side):
-        super().__init__(side, side)
-        self.name = 'Квадрат'
+try:
+    original = Image.open('python.png')
+except FileNotFoundError:
+    print('Файл не найден')
 
+print('Параметры изображения:')
+print('Формат:', original.format)
+print('Размер:', original.size)
+print('Цветовая схема:', original.mode)
 
-rect1 = Rectangle(5,5)
-rect2 = Rectangle(5,5)
+blur = original.filter(ImageFilter.BLUR)
+boxblur = original.filter(ImageFilter.BoxBlur(20))
+gaussblur = original.filter(ImageFilter.GaussianBlur(20))
+# blur.save('python_blur.png')
+# boxblur.save('python_boxblur.png')
+# gaussblur.save('python_gaussblur.png')
 
-if rect1 == rect2:  # сравниваем адреса объектов
-    print('Они равны')
-else:
-    print('Они не равны')
+cropped = original.crop((0,0, 195// 2, 113))
+cropped.save('crop.png')
 
- sq = sq1 + sq2
-print(sq)
+contour = original.filter(ImageFilter.CONTOUR)
+contour.save('contour.png')  # делаем раскраски
+
+pixels = original.load()  # получили массив пикселей
+w, h = original.size  #  получили размер переменных w и h
+
+resized = original.resize((w//2, h//2))
+resized.save('thumb.png')
+
+for x in range(w):
+    for y in range(h):
+        r, g, b = pixels[x,y]
+        pixels[x, y] = g, b, r
 
 
 
