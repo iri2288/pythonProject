@@ -1,27 +1,26 @@
-# Регулярные выражения
+# Квантификаторы (quantifier)
+# m - минимальное число совпадений
+# n - максимальное число совпадений
+# {m} - ровно m раз
+# {m,} - m раз  и более
+# {, n} - не более n раз
+# {m, n} - от m до n раз
 import re
 
-pattern = '[0-5][0-9]'  # отлавливается числа в этих пределах
-testString = 'Время - 07:45'
-
-result = re.findall(pattern, testString)
-print(result)
-
-# Группировка
-# [есн] - в строке присутствует любой из этих символов
-# [а-я] - в строке присутствует символ от а до я
-# [а-яА-Я] - в строке присутствует символ от а до я и от А до Я
-# [^абвгд] - ^ знак отрицания, все буквы кроме указанных
-
-pattern = '[^абвгд]'  # любая буква в строке, кроме абвгд
-testString = 'АБВГДейка - есть такая передача!'
+pattern = 'o{3,5}'  # в скобках пишетсяч без пробела
+testString = 'Google, Gooogle, Goooooogle'
 
 result = re.findall(pattern, testString, re.I)  # re.I игнорируя регистр
 print(result)
-print(*result, sep='')  # не списком
 
-pattern = r'\((.+?)\)'  # извлекаем контекст, находящийся в скобках
-testString = 'Поиск по образцу (это в скобках)'
+pattern = 'Go{3,}gle'  # версия написания Google с 3 'o' и более
+testString = 'Google, Gooogle, Goooooogle'
 
 result = re.findall(pattern, testString, re.I)  # re.I игнорируя регистр
-print(*result, sep='')  # не списком
+print(result)
+
+pattern = 'Go{,2}gle'  # версия написания Google с 3 'o' и более
+testString = 'Google, Gooogle, Goooooogle'
+
+result = re.findall(pattern, testString, re.I)  # re.I игнорируя регистр
+print(result)
