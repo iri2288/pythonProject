@@ -1,25 +1,39 @@
-# При наследовании
-# базовый,
+# Переопределение
+class Rectangle:
+    def __init__(self, a, b):
+        self.a = a
+        self.b = b
+    def area(self):
+        return (self.a * self.b)
+    def perimetr(self):
+        return (self.a + self.b) * 2
+    def __eq__(self, other):
+        if (self.a = other.a) and (self.b = other.b)
+            return True
+        return False
+    def __add__(self, other):
+        return (self.a + other.a, self.b + other.b)
 
-# __init__ - конструктор объектов
-# __del__ - деструктор
-class Student:
-    def __init__(self, name, university):
-        self.name = name
-        self.university = university
+    def __divmod__(self, other):
+        return (self.a / other.a, self.b / other.b)
 
-# для print() и str()
-# вывод читабельной информации об объекте
-    def __str__(self):
-        return f'{self.name}, {self.university}'
+class Square(Rectangle):
+    def __init__(self, side):
+        super().__init__(side, side)
+        self.name = 'Квадрат'
 
 
-# для разработчика (debug) информация о сложном объекте, список объектов, кортеж и т.д.
-    def __repr__(self):
-        return f'Класс: {self.__class__.__name__}{self.name}, {self.university}'
+rect1 = Rectangle(5,5)
+rect2 = Rectangle(5,5)
+
+if rect1 == rect2:  # сравниваем адреса объектов
+    print('Они равны')
+else:
+    print('Они не равны')
+
+ sq = sq1 + sq2
+print(sq)
 
 
 
-student = Student('Bill', 'Oxford'), Student('John', 'Oxford')
 
-print(student)
