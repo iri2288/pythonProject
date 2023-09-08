@@ -1,25 +1,27 @@
-# Модули и их применение
-#import lib as l
+# Регулярные выражения
+#
 
-#if __name__ as '__main__':
-    #l.sum(5, 5)
+import re
 
-# from lib import *  перегружает пространство имен
-# from lib import sum  перегружает пространство имен
-# sum(5, 5)
+pattern = r'\b\w{4}\b'
+pattern = r'\d'  # есть ли в строке цифры
+testString = 'Для экстренных вызовов - 112'
 
-import requests
+result = re.search(pattern, testString)
+# print(result)
+print('Цифры присутствуют в строке') if result else print('Цифр нет!')
 
-key = 'dc3659c8cdf392c6f36d48a66fd18765'
-city = input('Введите город: ')
+pattern = r'\d{3}'  # есть ли в строке 3 цифры идущие подряд
+testString = 'Для экстренных вызовов - 112'
 
-# ссылка, с которой мы получим все данные в формате JSON
-url = 'http://api.openweathermap.org/data/2.5/weather'
-# Дополнительные параметры (Ключ, город введенный пользователем и единицы измерения - metric означает Цельсий)
-params = {'APPID': key, 'q': city, 'units': 'metric'}
+result = re.search(pattern, testString)
+result = re.findall(pattern, testString)
+print(result)
+# print('Цифры присутствуют в строке') if result else print('Цифр нет!')
 
-result = requests.get(url, params=params)
-res = result.json()
-print(res)
-print('Температура:', res['main']['temp'], '°C')
-print('Реально ощущается как:', res['main']['feels_like'], '°C')
+pattern = r'начать\Z'  # на что заканчивается
+testString = 'Главное в любом деле - начать'
+
+result = re.search(pattern, testString)
+# print(result)
+print('Цифры присутствуют в строке') if result else print('Цифр нет!')
