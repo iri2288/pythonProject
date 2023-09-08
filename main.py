@@ -5,22 +5,21 @@
 # {m,} - m раз  и более
 # {, n} - не более n раз
 # {m, n} - от m до n раз
+# . - любой символ
+# * - от нуля до "бесконечности" (32767) 2 байтовый int {0,}
+# ? - от единицы до "бесконечности" (32767) 2 байтовый int {1,}
 import re
 
-pattern = 'o{3,5}'  # в скобках пишетсяч без пробела
-testString = 'Google, Gooogle, Goooooogle'
+# найти в тексте номер телефона начинающийся с +7 и содержит 10 цифр
+pattern = r'\+7\d{10}'  # вычленяет 10 цифр, если цифр меньше то возвращает пустоту
+testString = 'Google: +78121234567'
 
 result = re.findall(pattern, testString, re.I)  # re.I игнорируя регистр
 print(result)
 
-pattern = 'Go{3,}gle'  # версия написания Google с 3 'o' и более
-testString = 'Google, Gooogle, Goooooogle'
+pattern = r'стеклянн?ый'  # 2-я "н" может присутствовать но не обязана
+testString = 'Стекляный, стеклянный, оловянный, деревяннный, серебряный'
 
 result = re.findall(pattern, testString, re.I)  # re.I игнорируя регистр
 print(result)
 
-pattern = 'Go{,2}gle'  # версия написания Google с 3 'o' и более
-testString = 'Google, Gooogle, Goooooogle'
-
-result = re.findall(pattern, testString, re.I)  # re.I игнорируя регистр
-print(result)
